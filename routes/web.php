@@ -15,17 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-=======
 Route::get('/home', 'HomeController@index')->name('home');
 
 //AUTH ROUTES
@@ -38,4 +28,3 @@ Route::get('password/reset/{token}','Auth\ForgotPasswordController@showResetForm
 Route::post('password/reset','Auth\ForgotPasswordController@reset')->name('password.request');
 //Route::post('register','Auth\RegisterController@register')->middleware('can:isAdmin');
 //Route::get('register','Auth\RegisterController@showRegistrationForm')->name('register')->middleware('can:isAdmin');
->>>>>>> e4d99e02fb050ae0045d53a582d0cad210f3e37d
