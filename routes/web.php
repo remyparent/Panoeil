@@ -17,14 +17,22 @@ Route::get('/', function () {
 
 
 Route::get('/home', 'HomeController@index')->name('home');
+$slugPattern = '[a-z0-9\-]+';
+
+Route::get('/admin','PagesController@admin')->middleware('can:isAdmin');
+Route::group(['prefix'=>'admin','as'=>'admin.','namespace'=>'Admin', 'middleware' => 'can:isAdmin'],function (){
+    Route::resource('medias', 'MediasController');
+    Route::resource('accounts', 'AccountsController');
+    Route::resource('users', 'UsersController');
+});
 
 //AUTH ROUTES
 Route::get('login','Auth\LoginController@showLoginForm')->name('login');
 Route::post('login','Auth\LoginController@login');
-Route::post('logout','Auth\LoginController@logout');
+Route::post('logout','Auth\LoginController@logout')->name('logout');
 Route::post('password/email','Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('password/reset','Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::get('password/reset/{token}','Auth\ForgotPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset','Auth\ForgotPasswordController@reset')->name('password.request');
-//Route::post('register','Auth\RegisterController@register')->middleware('can:isAdmin');
-//Route::get('register','Auth\RegisterController@showRegistrationForm')->name('register')->middleware('can:isAdmin');
+//Route::post('register','Auth\RegisterController@register');
+//Route::get('register','Auth\RegisterController@showRegistrationForm')->name('register');
