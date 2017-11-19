@@ -72,7 +72,11 @@
                     <a href="{{ url('/home') }}">Home</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
+<<<<<<< HEAD
 {{--                        <a href="{{ route('register') }}">Register</a>--}}
+=======
+                        <a href="{{ route('register') }}">Register</a>
+>>>>>>> e4d99e02fb050ae0045d53a582d0cad210f3e37d
                         @endauth
             </div>
         @endif

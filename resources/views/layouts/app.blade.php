@@ -29,7 +29,10 @@
                 <ul class="navbar-nav">
                     @if (Auth::guest())
                         <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+<<<<<<< HEAD
                         <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+=======
+>>>>>>> e4d99e02fb050ae0045d53a582d0cad210f3e37d
                     @else
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
