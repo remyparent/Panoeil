@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Medias;
+use App\Media;
 use Illuminate\Http\Request;
 
 class MediasController extends Controller
@@ -41,10 +41,10 @@ class MediasController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Medias  $medias
+     * @param  \App\Media $medias
      * @return \Illuminate\Http\Response
      */
-    public function show(Medias $medias)
+    public function show(Media $medias)
     {
         //
     }
@@ -52,10 +52,10 @@ class MediasController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Medias  $medias
+     * @param  \App\Media $medias
      * @return \Illuminate\Http\Response
      */
-    public function edit(Medias $medias)
+    public function edit(Media $medias)
     {
         //
     }
@@ -63,11 +63,11 @@ class MediasController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Medias  $medias
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Media               $medias
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Medias $medias)
+    public function update(Request $request, Media $medias)
     {
         //
     }
@@ -75,10 +75,10 @@ class MediasController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Medias  $medias
+     * @param  \App\Media $medias
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Medias $medias)
+    public function destroy(Media $medias)
     {
         //
     }

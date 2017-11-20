@@ -4,14 +4,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/sb-admin.min.css') }}"/>
 </head>
 <body>
 <div id="app">
@@ -24,7 +22,6 @@
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <ul class="navbar-nav">
                     @if (Auth::guest())
@@ -33,17 +30,14 @@
                     @else
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false">
+                                    aria-haspopup="true" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                                 <a href="{{ route('logout') }}" class="dropdown-item"
-                                   onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                    Logout
-                                </a>
-
+                                        onclick="event.preventDefault();document.getElementById('logout-form').submit();"> Logout </a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
+                                        style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </div>
@@ -51,14 +45,17 @@
                     @endif
                 </ul>
             </div>
-
         </div>
     </nav>
-
     @yield('content')
 </div>
-
 <!-- Scripts -->
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script src="https://use.fontawesome.com/a54a4048ce.js"></script>
 <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/sb-admin.min.js') }}"></script>
 </body>
 </html>

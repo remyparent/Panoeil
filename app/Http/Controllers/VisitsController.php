@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Visits;
+use App\Visit;
 use Illuminate\Http\Request;
 
 class VisitsController extends Controller
@@ -41,10 +41,10 @@ class VisitsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Visits  $visits
+     * @param  \App\Visit $visits
      * @return \Illuminate\Http\Response
      */
-    public function show(Visits $visits)
+    public function show(Visit $visits)
     {
         //
     }
@@ -52,10 +52,10 @@ class VisitsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Visits  $visits
+     * @param  \App\Visit $visits
      * @return \Illuminate\Http\Response
      */
-    public function edit(Visits $visits)
+    public function edit(Visit $visits)
     {
         //
     }
@@ -63,11 +63,11 @@ class VisitsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Visits  $visits
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Visit               $visits
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Visits $visits)
+    public function update(Request $request, Visit $visits)
     {
         //
     }
@@ -75,10 +75,10 @@ class VisitsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Visits  $visits
+     * @param  \App\Visit $visits
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Visits $visits)
+    public function destroy(Visit $visits)
     {
         //
     }

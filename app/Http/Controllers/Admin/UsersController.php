@@ -1,17 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Account;
+use App\User;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class AccountsController extends Controller {
+class UsersController extends Controller
+{
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
+    public function index()
+    {
         //
     }
 
@@ -20,58 +23,64 @@ class AccountsController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create()
+    {
         //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Account $accounts
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(Account $accounts) {
+    public function show(User $user)
+    {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Account $accounts
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(Account $accounts) {
+    public function edit(User $user)
+    {
         //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\Account             $accounts
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Account $accounts) {
+    public function update(Request $request, User $user)
+    {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Account $accounts
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Account $accounts) {
+    public function destroy(User $user)
+    {
         //
     }
 }
