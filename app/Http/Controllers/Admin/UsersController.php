@@ -6,16 +6,13 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class UsersController extends Controller
-{
+class UsersController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
     }
 
     /**
@@ -23,64 +20,61 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create($account_id) {
+        $user = new User();
+        $user->account_id = $account_id;
+        return view('admin.users.create', compact('user'));
+
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        return redirect(action("Admin\AccountsController@index"))->with('success',"L'utilisateur a été créé.");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
-    {
+    public function show(User $user) {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\User  $user
+     * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
-    {
+    public function edit(User $user) {
         //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\User                $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
-    {
+    public function update(Request $request, User $user) {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User  $user
+     * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
-    {
+    public function destroy(User $user) {
         //
     }
 }

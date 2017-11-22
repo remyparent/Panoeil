@@ -5,16 +5,14 @@ namespace App\Http\Controllers;
 use App\Video;
 use Illuminate\Http\Request;
 
-class VideosController extends Controller
-{
+class VideosController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+
     }
 
     /**
@@ -22,19 +20,17 @@ class VideosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
@@ -44,8 +40,7 @@ class VideosController extends Controller
      * @param  \App\Video $videos
      * @return \Illuminate\Http\Response
      */
-    public function show(Video $videos)
-    {
+    public function show(Video $videos) {
         //
     }
 
@@ -55,8 +50,7 @@ class VideosController extends Controller
      * @param  \App\Video $videos
      * @return \Illuminate\Http\Response
      */
-    public function edit(Video $videos)
-    {
+    public function edit(Video $videos) {
         //
     }
 
@@ -67,8 +61,7 @@ class VideosController extends Controller
      * @param  \App\Video               $videos
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Video $videos)
-    {
+    public function update(Request $request, Video $videos) {
         //
     }
 
@@ -78,8 +71,7 @@ class VideosController extends Controller
      * @param  \App\Video $videos
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Video $videos)
-    {
+    public function destroy(Video $videos) {
         //
     }
 }

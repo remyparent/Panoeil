@@ -22,8 +22,11 @@ $slugPattern = '[a-z0-9\-]+';
 Route::get('/admin','PagesController@admin')->middleware('can:isAdmin');
 Route::group(['prefix'=>'admin','as'=>'admin.','namespace'=>'Admin', 'middleware' => 'can:isAdmin'],function (){
     Route::resource('medias', 'MediasController');
-    Route::resource('accounts', 'AccountsController');
-    Route::resource('users', 'UsersController');
+    Route::resource('videos', 'VideosController');
+    Route::resource('accounts', 'AccountsController',['except'=>'show']);
+    Route::get('accounts/{account}', 'AccountsController@show')->name('accounts.show')->where('slug', '[a-z\-]+');
+    Route::resource('users', 'UsersController',['except'=>'create']);
+    Route::get('users/create/{account_id}','UsersController@create')->name('users.create');
 });
 
 //AUTH ROUTES

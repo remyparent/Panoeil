@@ -36,7 +36,7 @@ class AccountsController extends Controller {
      */
     public function store(Request $request) {
         $account = Account::create($this->params($request));
-        return redirect(route('admin.accounts.show', $account))->with('success', "L'account a été créé");
+        return redirect(route('admin.accounts.show', $account->slug))->with('success', "L'account a été créé");
     }
 
     /**

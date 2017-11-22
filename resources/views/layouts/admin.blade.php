@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <!-- Top Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top " id="mainNav">
         <a class="navbar-brand" href="{{action('PagesController@admin')}}">Panoeil</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -13,14 +13,25 @@
                     {{--<a class="nav-link" href="tables.html"> <i class="fa fa-fw fa-table"></i>--}}
                         {{--<span class="nav-link-text">Tables</span> </a>--}}
                 {{--</li>--}}
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                        <i class="fa fa-fw fa-users"></i> <span class="nav-link-text">Compte</span> </a>
-                    <ul class="sidenav-second-level collapse" id="collapseComponents">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Compte">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComptes" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-users"></i> <span class="nav-link-text">Comptes</span> </a>
+                    <ul class="sidenav-second-level collapse" id="collapseComptes">
                         <li>
                             <a href="{{action('Admin\AccountsController@index')}}">Voir les comptes</a>
                         </li><li>
                             <a href="{{action('Admin\AccountsController@create')}}">Ajouter un compte</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Video">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseVideos" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-users"></i> <span class="nav-link-text">Videos</span> </a>
+                    <ul class="sidenav-second-level collapse" id="collapseVideos">
+                        <li>
+                            <a href="{{action('Admin\VideosController@index')}}">Voir les videos</a>
+                        </li><li>
+                            <a href="{{action('Admin\VideosController@create')}}">Ajouter un videos</a>
                         </li>
                     </ul>
                 </li>
@@ -167,7 +178,7 @@
         </div>
     </nav>
     <div class="content-wrapper">
-        <div class="container-fluid">
+        <div class="container-fluid p-5">
             @yield('adminContent')
         </div>
     </div>

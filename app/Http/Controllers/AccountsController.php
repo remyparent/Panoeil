@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Account;
+use App\Http\Requests\AccountsRequest;
 use Illuminate\Http\Request;
 
 class AccountsController extends Controller {
@@ -12,7 +13,6 @@ class AccountsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //
     }
 
     /**
@@ -30,7 +30,7 @@ class AccountsController extends Controller {
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(AccountsRequest $request) {
         //
     }
 
