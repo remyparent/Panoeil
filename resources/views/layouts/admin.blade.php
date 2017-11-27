@@ -24,17 +24,17 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Video">
-                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseVideos" data-parent="#exampleAccordion">
-                        <i class="fa fa-fw fa-users"></i> <span class="nav-link-text">Videos</span> </a>
-                    <ul class="sidenav-second-level collapse" id="collapseVideos">
-                        <li>
-                            <a href="{{action('Admin\VideosController@index')}}">Voir les videos</a>
-                        </li><li>
-                            <a href="{{action('Admin\VideosController@create')}}">Ajouter un videos</a>
-                        </li>
-                    </ul>
-                </li>
+                {{--<li class="nav-item" data-toggle="tooltip" data-placement="right" title="Video">--}}
+                    {{--<a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseVideos" data-parent="#exampleAccordion">--}}
+                        {{--<i class="fa fa-fw fa-users"></i> <span class="nav-link-text">Videos</span> </a>--}}
+                    {{--<ul class="sidenav-second-level collapse" id="collapseVideos">--}}
+                        {{--<li>--}}
+                            {{--<a href="{{action('Admin\VideosController@index')}}">Voir les videos</a>--}}
+                        {{--</li><li>--}}
+                            {{--<a href="{{action('Admin\VideosController@create')}}">Ajouter un videos</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
+                {{--</li>--}}
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-file"></i> <span class="nav-link-text">Example Pages</span> </a>

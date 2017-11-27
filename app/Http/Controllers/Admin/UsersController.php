@@ -34,6 +34,7 @@ class UsersController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        User::create($this->params($request));
         return redirect(action("Admin\AccountsController@index"))->with('success',"L'utilisateur a été créé.");
     }
 
@@ -44,7 +45,7 @@ class UsersController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show(User $user) {
-        //
+        return view('admin.users.show',compact('user'));
     }
 
     /**
@@ -76,5 +77,11 @@ class UsersController extends Controller {
      */
     public function destroy(User $user) {
         //
+    }
+
+    public function params($request) {
+        $params = $request->except('_token','password');
+        $params['password'] = bcrypt($request->password);
+        return $params;
     }
 }

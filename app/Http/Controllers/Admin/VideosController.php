@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Media;
+use App\Account;
+use App\Http\Requests\VideosRequest;
 use App\Video;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -23,9 +24,9 @@ class VideosController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
+    public function create($account_slug) {
         $video = new Video();
-        return view('admin.videos.create', compact('video'));
+        return view('admin.videos.create', compact('video','account_slug'));
     }
 
     /**
@@ -34,10 +35,10 @@ class VideosController extends Controller {
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-        $media = Media::create($this->paramsMedia($request));
-        $video = Video::create(['media_id' => $media->id]);
-        return redirect(action('Admin\VideosController@index'))->with('success', 'Votre photo a été enregistré');
+    public function store(VideosRequest $request) {
+        $account = Account::findOrFail($this->params($request)['account_id']);
+        Video::create($this->params($request));
+        return redirect(action('Admin\AccountsController@show',$account->slug))->with('success', 'Votre photo a été enregistré');
     }
 
     /**
@@ -46,8 +47,9 @@ class VideosController extends Controller {
      * @param  \App\Video $video
      * @return \Illuminate\Http\Response
      */
-    public function show(Video $video) {
-        //
+    public function show($account_slug, $video_slug) {
+        $video = Video::findBySlug($video_slug);
+        return view('admin.videos.show',compact('video'));
     }
 
     /**
@@ -81,7 +83,7 @@ class VideosController extends Controller {
         //
     }
 
-    public function paramsMedia($request) {
+    public function params($request) {
         $params = $request->except('_token');
         return $params;
     }

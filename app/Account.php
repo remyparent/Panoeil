@@ -3,21 +3,21 @@
 namespace App;
 
 use App\Behaviour\Sluggable;
-use Illuminate\Database\Eloquent\Model;
 
 class Account extends Model {
     public $fillable = ['name', 'slug'];
     use Sluggable;
 
-    function users() {
+    public function users() {
         return $this->hasMany('App\User');
     }
-
-    function medias() {
-        return $this->hasMany('App\Media');
+    public function videos() {
+        return $this->hasMany('App\Video');
     }
-
-    function hasUsers() {
+    public function visits() {
+        return $this->hasMany('App\Visit');
+    }
+    public function hasUsers() {
         return $this->users()->count() > 0 ? TRUE : FALSE;
     }
 

@@ -46,8 +46,9 @@ class AccountsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($slug) {
-        $account = $this->findBySlug($slug);
-        return view('admin.accounts.show',compact('account'));
+        $account = Account::findBySlug($slug);
+        $medias = $account->videos;
+        return view('admin.accounts.show',compact('account','medias'));
     }
 
     /**
@@ -92,7 +93,5 @@ class AccountsController extends Controller {
         return $params;
         //        }
     }
-    public function findBySlug($slug){
-        return Account::where('slug', $slug)->first();
-    }
+
 }

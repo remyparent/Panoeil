@@ -1,5 +1,5 @@
 <?php use App\Account; ?>
-{!! Form::model($video,['files'=> true,'class' => '', 'url' => action("Admin\VideosController@$action", $video), 'method'=> $action == 'store' ? 'Post':'Put']) !!}
+{!! Form::model($visit,['files'=> true,'class' => '', 'url' => action("Admin\VisitsController@$action", $visit), 'method'=> $action == 'store' ? 'Post':'Put']) !!}
 {{--TITRE--}}
 <div class="form-group row mb-5">
     <label for="title" class="col-sm-2 col-form-label">Titre</label>
@@ -26,17 +26,17 @@
         </select>
     </div>
 </div>
-{{--VIDEO--}}
+{{--VISIT--}}
 <div class="form-group row mb-5">
-    <label for="video" class="col-sm-2 col-form-label">Video</label>
+    <label for="visit" class="col-sm-2 col-form-label">Visit</label>
     <div class="  col-sm-6">
         <!-- Turquoise -->
         <div id="upload-progress" class="progress">
             <div class="progress-bar bg-info progress-bar-animated progress-bar-striped"></div>
         </div>
         <br> <input  id="add-file-btn" type="file" class="form-control">
-{{--        {!! Form::file('videox',['id'=>'add-file-btn','class' => 'form-control']) !!}--}}
-        <input type="hidden" name="file" id="trueVideo"> <br>
+{{--        {!! Form::file('visitx',['id'=>'add-file-btn','class' => 'form-control']) !!}--}}
+        <input type="hidden" name="file" id="trueVisit"> <br>
         <a href="#/" class="btn btn-secondary" id="start-upload-btn">Start upload</a>
         <a href="#/" class="btn btn-secondary" id="pause-upload-btn">Pause upload</a>
     </div>
@@ -933,7 +933,7 @@
             $.uploadNextChunk = function () {
                 var found = false;
 
-                // In some cases (such as videos) it's really handy to upload the first
+                // In some cases (such as visits) it's really handy to upload the first
                 // and last chunk of a file quickly; this let's the server check the file's
                 // metadata and determine if there's even a point in continuing.
                 if ($.getOpt('prioritizeFirstAndLastChunk')) {
@@ -1167,7 +1167,7 @@
             progressBar.fileAdded();
         });
         r.on('fileSuccess', function (file, message) {
-            $('#trueVideo').val(r.files[0].file.name);
+            $('#trueVisit').val(r.files[0].file.name);
             progressBar.finish();
         });
 

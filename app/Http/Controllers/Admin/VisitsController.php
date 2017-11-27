@@ -6,15 +6,13 @@ use App\Visit;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class VisitsController extends Controller
-{
+class VisitsController extends Controller {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         //
     }
 
@@ -23,64 +21,59 @@ class VisitsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create($account_slug) {
+        $visit = new Visit();
+        return view('admin.visits.create', compact('visit', 'account_slug'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Request $request) {
         //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Visit  $visit
+     * @param  \App\Visit $visit
      * @return \Illuminate\Http\Response
      */
-    public function show(Visit $visit)
-    {
+    public function show(Visit $visit) {
         //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Visit  $visit
+     * @param  \App\Visit $visit
      * @return \Illuminate\Http\Response
      */
-    public function edit(Visit $visit)
-    {
+    public function edit(Visit $visit) {
         //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Visit  $visit
+     * @param  \Illuminate\Http\Request $request
+     * @param  \App\Visit               $visit
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Visit $visit)
-    {
+    public function update(Request $request, Visit $visit) {
         //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Visit  $visit
+     * @param  \App\Visit $visit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Visit $visit)
-    {
+    public function destroy(Visit $visit) {
         //
     }
 }
