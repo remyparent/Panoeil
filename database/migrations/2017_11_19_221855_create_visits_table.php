@@ -15,7 +15,10 @@ class CreateVisitsTable extends Migration
     {
         Schema::create('visits', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('media_id')->unsigned()->index();
+            $table->integer('account_id')->unsigned()->index();
+            $table->string('title');
+            $table->longText('description');
+            $table->string('slug')->unique;
             $table->timestamps();
         });
     }
