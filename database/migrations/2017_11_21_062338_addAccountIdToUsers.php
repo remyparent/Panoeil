@@ -14,7 +14,7 @@ class AddAccountIdToUsers extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('account_id')->unsigned()->index();
+            $table->integer('account_id')->unsigned()->nullable();
         });
     }
 
