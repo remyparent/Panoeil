@@ -21,10 +21,18 @@ $slugPattern = '[a-z0-9\-]+';
 
 Route::get('/admin','PagesController@admin')->middleware('can:isAdmin');
 Route::group(['prefix'=>'admin','as'=>'admin.','namespace'=>'Admin', 'middleware' => 'can:isAdmin'],function (){
-    Route::resource('medias', 'MediasController');
-    Route::resource('videos', 'VideosController');
+    // Visits
+    Route::resource('visits', 'VisitsController',['except'=> ['create', 'show']]);
+    Route::get('visits/create/{account}', 'VisitsController@create')->name('visits.create')->where('slug', '[a-z\-]+');
+    Route::get('visits/{slug}', 'VisitsController@show')->name('visits.show')->where('slug', '[a-z\-]+');
+    // Videos
+    Route::resource('videos', 'VideosController',['except'=> ['create', 'show']]);
+    Route::get('videos/create/{account}', 'VideosController@create')->name('videos.create')->where('slug', '[a-z\-]+');
+    Route::get('account/{account}/video/{slug}', 'VideosController@show')->name('videos.show')->where('slug', '[a-z\-]+');
+    // Accounts
     Route::resource('accounts', 'AccountsController',['except'=>'show']);
-    Route::get('accounts/{account}', 'AccountsController@show')->name('accounts.show')->where('slug', '[a-z\-]+');
+    Route::get('account/{account}', 'AccountsController@show')->name('accounts.show')->where('slug', '[a-z\-]+');
+    // Users
     Route::resource('users', 'UsersController',['except'=>'create']);
     Route::get('users/create/{account_id}','UsersController@create')->name('users.create');
 });
@@ -37,5 +45,9 @@ Route::post('password/email','Auth\ForgotPasswordController@sendResetLinkEmail')
 Route::get('password/reset','Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 Route::get('password/reset/{token}','Auth\ForgotPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset','Auth\ForgotPasswordController@reset')->name('password.request');
-//Route::post('register','Auth\RegisterController@register');
-//Route::get('register','Auth\RegisterController@showRegistrationForm')->name('register');
+Route::post('register','Auth\RegisterController@register');
+Route::get('register','Auth\RegisterController@showRegistrationForm')->name('register');
+
+// UPLOADS
+Route::get ('resumable/upload', 'UploadController@resumableUpload');
+Route::post('resumable/upload', 'UploadController@resumableUpload');
